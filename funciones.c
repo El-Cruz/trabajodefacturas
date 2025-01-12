@@ -196,12 +196,14 @@ void deleteFactura(int cedula) {
     fclose(file);
     fclose(tempFile);
 
-    remove("facturas");
-    rename("temp", "facturas");
+    
 
     if (found) {
+        remove("facturas");
+        rename("temp", "facturas");
         printf("Factura eliminada\n");
     } else {
+        remove("temp");
         printf("Factura no encontrada\n");
     }
 }
